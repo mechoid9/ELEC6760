@@ -1,0 +1,20 @@
+Homework Assignment #3
+ELEC 5760/6760             
+Due: Monday 2/11/13
+
+  1) Consider the transmissibility plot for a MEM device with a 100µg proof mass
+     shown in plot1.PNG:
+
+a. What is Q?
+b. What is the damping ratio?
+c. What is the natural frequency in KHz?
+d. What is the spring constant?
+e. What is the damping coefficient?
+f. If the device is excited with a sinusoidal input at its natural frequency with an
+   amplitude of 0.2µm, what is the amplitude of the proof mass displacement at that
+   frequency?
+g. For the input in (f), what is the maximum acceleration experienced by the proof
+   mass, in G's [1G=9.8m/s2]?
+h. What is the expression for T(s) for this device?
+i. Using Matlab with an m-file, plot |T(j)|. Turn in your plot (in a similar format to
+   the one above (it should look very similar, but with less noise)) AND you m-file.
