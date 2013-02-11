@@ -13,6 +13,8 @@
 \setlength{\headheight}{0.5in}
 \setlength{\headsep}{0in}
 \setlength{\footskip}{9pt}
+\usepackage{listings}
+\usepackage{color}
 
 
 % \pagestyle{fancyplain}
@@ -74,17 +76,17 @@ Consider the plot in Figure~\ref{fig:plot1}.
 		$ \zeta = \frac{1}{2 Q} = \frac{1}{2 * 35} = 0.0143 = 14.3 \times 10^{-3} $
 	\item What is the natural frequency in KHz?\\
 		$ \max \| T(j\omega) \| \colon Q \gg 1 \colon \omega = \omega{\text{n}}
-		\Rightarrow \omega_{\text{n}} = 2.5 \text{KHz} $
+		\Rightarrow \frac{\omega_{\text{n}}}{2\pi} = 2.5 \text{KHz} $
 	\item What is the spring constant?\\
 		$ {\omega_{\text{n}}}^2 = \text{K} / m
 		\Rightarrow \text{K} = {\omega_{\text{n}}}^2 * m
-		= (2500 \text{Hz})^2 (100 \times 10^{-9} kg) = 0.625\text{ }kg/s^2
-		= 0.625\text{ N}/m $
+		= (2*\pi*2500 \text{rad/s})^2 (100 \times 10^{-9} kg) = 24.67\text{ }kg/s^2
+		= 24.67\text{ N}/m $
 	\item What is the damping coefficient?\\
 		$ \frac{\omega_{n}}{Q} = \frac{C}{m} 
 		\Rightarrow C = \frac{\omega_n m}{Q} 
-		= \frac{(2500 \text{HZ})( 100 \times 10^{-9} kg)}{35}
-		= 7.14 \times 10^{-6} \text{N}\cdotp s /m $ 
+		= \frac{(2*\pi*2500 \text{HZ})( 100 \times 10^{-9} kg)}{35}
+		= 44.88 \times 10^{-6} \text{N}\cdotp s /m $ 
 	\item If the device is excited with a sinusoidal input at its natural frequency with an\\
    	amplitude of 0.2$\mu$m, what is the amplitude of the proof mass displacement at that\\
    	frequency?\\
@@ -94,6 +96,30 @@ Consider the plot in Figure~\ref{fig:plot1}.
 		$ A = 0.2\mu m \Rightarrow B = 35 \times 0.2 \mu m = 7 \mu m $
 	\item For the input in (f), what is the maximum accelertion experienced by the proof\\
 		mass, in G's? [1G$ = 9.8 m/s^2$]\\
+		$ x(t) = B \sin (\omega t); \dot{x}(t) = B \omega \cos(\omega t); 
+		\ddot{x}(t) = -B \omega^2 \sin(\omega t); \max{\ddot{x}} = B {\omega_n}^2$\\
+		$\Rightarrow \max{\ddot{x}} = (7 \mu m )(2*\pi*2.5Krad/s)^2 = 1727  m/s^s$\\
+		$ 1727 m/s^2 \approx 176.24 G \Rightarrow \max{\ddot{x}} = 176.24 G$
+
+	\item What is the expression for T(s) for this device?\\
+		$ T(s) = \frac{2\zeta\omega_n s + {\omega_n}^2}{s^2 + 2\zeta\omega_n s + {\omega_n}^2}
+		\colon\colon \zeta = 14.3 \times 10^{-3} \colon \omega_n = 2*\pi*2.5\text{Krad/s}$\\
+		$\Rightarrow T(s) = \frac{2 (14.3\times 10^{-3})(2*\pi*2.5Krad/s)(s) + (2*\pi*2.5Krad/s)^2}{
+			s^2 + 2 (14.3\times 10^{-3})(2*\pi*2.5Krad/s)(s) + (2*\pi*2.5Krad/s)^2}$\\
+		$ T(s) = \frac{449.24 \text{Krad/s} s + 246.7\times 10^6 {\text{rad/s}}^2}{
+			s^2 + 449.24 \text{Krad/s} s + 246.7\times 10^6 {\text{rad/s}}^2}$
+	\item Using Matlab with an m-file, plot $\|T(j\omega)\|$. 
+		Turn in your plot (in a similar format to
+   		the one above (it should look very similar, but with less noise)) AND your m-file.\\
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=0.95\textwidth,keepaspectratio]{HW3_plot}
+   \caption{ This is the plot of $\|T(j\omega)\|$ produced in MATLAB. }
+   \label{fig:HW3_plot}
+\end{figure}
+\lstinputlisting[language=Matlab,numbers=left,frame=single,stepnumber=1,title=\lstname]{HW3_1_i.m}
+
 
 \end{enumerate}
 
