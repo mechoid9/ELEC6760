@@ -1,0 +1,25 @@
+Homework Assignment #5              ELEC 5760/6760           Due: Wednesday 2/20/13
+  1) A MEMS device consists of a proof mass attached to a frame with a suspension
+     system. The bottom of the proof mass is 1mm by 1mm in size and serves as an
+     electrode. Another electrode of the same size is located 2µm beneath it. If the
+     proof mass can move up and down ±1µm from its nominal distance to the bottom
+     electrodes, calculate the nominal, maximum and minimum capacitance between
+     the two electrodes. Assume that the device is in a vacuum.
+  2) A certain MEMS capacitance has a rest (i.e. nominal) value of 3pF, a minimum
+     value of 2pF and a maximum value of 5pF. Place it in a charge amplifier circuit
+     that has an input voltage of 10V and a feedback capacitor (C2) of 10pF. Calculate
+     the amplifier output voltage (at the end of the 2phi cycle) for the nominal, minimum
+     and maximum capacitance values.
+  3) For the MEMS capacitance in (2) place it in a 5V "fast" CMOS ring oscillator
+     circuit with both resistors being 100k. What is the output frequency for Cmin,
+     Cnom and Cmax?
+  4) If two MEMS capacitances from (2) are placed in a capacitive AC voltage divider
+     to realize a differential capacitive sensor configuration, with the input voltage
+     having an amplitude of 10V, what is the output voltage amplitude for each case?
+  5) If the MEMS capacitance from (2) is placed in a switched-capacitor circuit that is
+     switched at 250KHz, what is the value of the equivalent resistance for the
+     nominal, minimum and maximum capacitance values?
+  6) If the MEMS device in (2) is placed in an RC phase delay circuit, where R = 250
+     k, what is the phase delay in µs for the nominal, minimum and maximum
+     capacitance values?
+
