@@ -1,0 +1,353 @@
+\documentclass{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+% \usepackage{fullpage, fancyhdr}
+\usepackage{fullpage}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{portland}
+%\usepackage{setspace}
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.5in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{9pt}
+\usepackage{listings}
+\usepackage{color}
+
+\renewcommand{\arraystretch}{1.5}
+
+% For circuitikz
+\usepackage[american,arrowmos]{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{amsfonts}
+\usetikzlibrary{shapes,arrows}
+
+% \pagestyle{fancyplain}
+\pagestyle{myheadings}
+\voffset=-0.50in
+\topmargin=0.00in 
+\headsep=0.25in 
+\evensidemargin=0in 
+\oddsidemargin=0in 
+\textwidth=6.6in 
+\textheight=10.0in 
+
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+% remember to use [htp] or [htpb] for placement
+
+\title{Assignment \# 5: MEMS Capacitive Sensor Calculations}
+\date{2/20/2013}
+\author{Brian Arnberg}
+
+\markright{Brian Arnberg\hfill ELEC 6760 - Solid State Sensors\hfill}     
+\setlength{\parindent}{0pt}
+
+
+\begin{document}\label{start}
+
+% \begin{titlepage}
+% 	\maketitle
+% 	\thispagestyle{empty}
+% \end{titlepage}
+
+
+\section*{ Homework Assignment \#5 - Due Wed. 2/20/13 }
+\renewcommand{\labelenumi}{\arabic{enumi})}
+
+\begin{enumerate}
+%--------------------------------------------------------------%
+%---- Problem 1 -----------------------------------------------%
+\item\label{p1}
+ A MEMS device consists of a proof mass attached to a frame with a suspension
+     system. The bottom of the proof mass is 1mm by 1mm in size and serves as an
+     electrode. Another electrode of the same size is located 2$\mu$m beneath it. If the
+     proof mass can move up and down $\pm 1\mu$m from its nominal distance to the bottom
+     electrodes, calculate the nominal, maximum and minimum capacitance between
+     the two electrodes. Assume that the device is in a vacuum.\\
+
+\begin{figure}[h]
+\centering
+\caption{ Values of Capacitance for (\ref{p1}).\\
+		$d = 2\mu m \colon \Delta d = \pm1\mu m \colon \varepsilon = 8.854 pF/m$}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = \frac{\varepsilon \times w \times L}{d - \Delta d}$\\
+			$C = \frac{8.854 pF/m \times 1mm \times 1mm}{2\mu m - 1\mu m}$\\
+			$C = 8.854pF$
+		\end{tabular}
+	  	\caption{Maximum: $d = d - \Delta d$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = \frac{\varepsilon \times w \times L}{d}$\\
+			$C = \frac{8.854 pF/m \times 1mm \times 1mm}{2\mu m}$\\
+			$C = 4.427pF$
+		\end{tabular}
+		\caption{Nominal: $d = d$} 
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = \frac{\varepsilon \times w \times L}{d - \Delta d}$\\
+			$C = \frac{8.854 pF/m \times 1mm \times 1mm}{2\mu m + 1\mu m}$\\
+			$C = 2.951pF$
+		\end{tabular}
+		\caption{Minimum: $d = d + \Delta d$}
+	\end{subtable}
+\end{figure}
+%--------------------------------------------------------------%
+%---- Problem 2 -----------------------------------------------%
+\item\label{p2}
+A certain MEMS capacitance has a rest (i.e. nominal) value of 3pF, a minimum
+     value of 2pF and a maximum value of 5pF. Place it in a charge amplifier circuit
+     that has an input voltage of 10V and a feedback capacitor (C2) of 10pF. Calculate
+     the amplifier output voltage (at the end of the $\phi_2$ cycle) for the nominal, minimum
+     and maximum capacitance values.\\
+
+\begin{figure}[h]
+\centering
+\caption{Amplifier Output Voltages for (\ref{p2}).\\
+$V_{in} = 10V \colon C_2 = 10pF \colon \text{After }\phi_2\text{, }V_{out} = \frac{-C_s V_{in}}{C_2}$}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C_s = 2pF$\\
+			$V_{out} = \frac{-C_s V_{in}}{C_2} = \frac{-2pF \times 10V}{10pF}$\\
+			$V_{out} = -2V$
+		\end{tabular}
+		\caption{$V_{out}$ for $C_{min}$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C_s = 3pF$\\
+			$V_{out} = \frac{-C_s V_{in}}{C_2} = \frac{-3pF \times 10V}{10pF}$\\
+			$V_{out} = -3V$
+		\end{tabular}
+		\caption{$V_{out}$ for $C_{nom}$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C_s = 5pF$\\
+			$V_{out} = \frac{-C_s V_{in}}{C_2} = \frac{-3pF \times 10V}{10pF}$\\
+			$V_{out} = -5V$
+		\end{tabular}
+		\caption{$V_{out}$ for $C_{max}$}
+	\end{subtable}
+\end{figure}
+
+
+%--------------------------------------------------------------%
+%---- Problem 3 -----------------------------------------------%
+\item\label{p3}
+	For the MEMS capacitance in (\ref{p2}) place it in a 5V ``fast'' CMOS ring oscillator
+	circuit with both resistors being $100k\Omega$. What is the output frequency for $C_{min}$,
+	$C_{nom}$ and $C_{max}$?\\
+
+\begin{figure}[h]     
+\centering
+\caption{Output Frequencies for (\ref{p3}).\\
+		$t = -RC \ln {\sfrac{1}{3}} \colon $
+		$f = 1/_T \colon T = 2 t \colon f = \frac{0.455}{RC}$}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 2pF \colon R = 100k\Omega$\\
+			$f = \frac{0.455}{RC} = \frac{0.455}{100k\Omega 2pF}$\\
+			$f = 2.275$MHz
+		\end{tabular}
+	  	\caption{$f_o$ for $C_{min}$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 3pF \colon R = 100k\Omega$\\
+			$f = \frac{0.455}{RC} = \frac{0.455}{100k\Omega 3pF}$\\
+			$f = 1.517$MHz
+		\end{tabular}
+		\caption{$f_o$ for $C_{nom}$} 
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 5pF \colon R = 100k\Omega$\\
+			$f = \frac{0.455}{RC} = \frac{0.455}{100k\Omega 5pF}$\\
+			$f = 910$kHz
+		\end{tabular}
+		\caption{$f_o$ for $C_{max}$}
+	\end{subtable}
+
+\end{figure}
+
+
+\newpage
+%--------------------------------------------------------------%
+%---- Problem 4 -----------------------------------------------%
+\item\label{p4}
+If two MEMS capacitances from (\ref{p2}) are placed in a capacitive AC voltage divider
+     to realize a differential capacitive sensor configuration, with the input voltage
+     having an amplitude of 10V, what is the output voltage amplitude for each case?
+\begin{figure}[h]
+\centering
+\caption{Output Voltage Amplitude for each case in (\ref{p4}).}
+\begin{subfigure}[b]{0.3\textwidth}
+	\centering
+	\begin{circuitikz}[scale=0.9]\draw
+		(0,1) node[ground] (gnd) {}
+			to[vC, l_=$C_2$, o-*] (0,3)
+		        to[vC, l_=$C_1$, *-o]  (0,5)
+			node[anchor=south] {$+10V$};
+		\draw (0,3) to[short, *-*] (2,3)
+			node[anchor=south] {$V_{out}$};
+	\end{circuitikz}
+	\caption{AC Voltage Divider}
+\end{subfigure}
+\begin{subtable}[b]{0.3\textwidth}
+	\centering
+	\begin{tabular}{ l }
+		$Q = VC \colon C_{eq} = \frac{C_2 C_1}{C_1 + C_2} \colon$\\
+		$V_{out} = \frac{Q}{C_2} = \frac{V_in C_{eq}}{C_2}$\\
+		$V_{out} = V_{in} \frac{C_1}{C_1 + C_2}$
+	\end{tabular}
+	\caption{Calculations}
+\end{subtable}
+\begin{subtable}[b]{0.3\textwidth}
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{1}{|l|}{$C_1$, pF} & \multicolumn{1}{l|}{$C_2$, pF} &%
+	        \multicolumn{1}{l|}{$V_{out}$, V} \\ \hline
+		2 (min) & 5 (max) & 2.86 \\ \hline
+		3 (nom) & 3 (nom) & 5.00 \\ \hline
+		5 (max) & 2 (min) & 7.14 \\ \hline
+	\end{tabular}
+	\caption{Voltage outputs for each case.}
+\end{subtable}
+\end{figure}
+%--------------------------------------------------------------%
+%---- Problem 5 -----------------------------------------------%
+\item\label{p5}
+If the MEMS capacitance from (\ref{p2}) is placed in a switched-capacitor circuit that is
+     switched at 250KHz, what is the value of the equivalent resistance for the
+     nominal, minimum and maximum capacitance values?\\
+\begin{figure}[h]     
+\centering
+\caption{Equivalent Resistances for (\ref{p5}).}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering	
+		\begin{tabular}{ c }
+			$f_{switch} = 250kHz$\\
+			$i = \frac{\delta q}{\delta t} = \frac{Q}{T}$%
+			$  = \frac{C V_{in}}{T} = C f_{switch} V_{in}$\\
+			$\Rightarrow R = \frac{V}{i} = \frac{1}{C f_{switch}}$\\
+			\hline
+		\end{tabular}
+	\end{subfigure}
+
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 2pF$\\
+			$R = \frac{1}{C f_{switch}} = \frac{1}{2pF \times 250kHz}$\\
+			$R = 2M\Omega$
+		\end{tabular}
+	  	\caption{$R$ for $C_{min}$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 3pF$\\
+			$R = \frac{1}{C f_{switch}} = \frac{1}{3pF \times 250kHz}$\\
+			$R = 1.333M\Omega$
+		\end{tabular}
+		\caption{$R$ for $C_{nom}$} 
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 5pF$\\
+			$R = \frac{1}{C f_{switch}} = \frac{1}{5pF \times 250kHz}$\\
+			$R = 800k\Omega$
+		\end{tabular}
+		\caption{$R$ for $C_{max}$}
+	\end{subtable}
+
+\end{figure}
+
+%--------------------------------------------------------------%
+%---- Problem 6 -----------------------------------------------%
+\item\label{p6}
+If the MEMS device in (\ref{p2}) is placed in an RC phase delay circuit, where R = 250k$\Omega$, 
+	what is the phase delay in $\mu s$ for the nominal, minimum and maximum
+	capacitance values?\\
+
+\begin{figure}[h]     
+\centering
+\caption{Phase Delay for (\ref{p6}).}
+	\begin{subfigure}[b]{0.5\textwidth}% initial calculations
+		\centering	
+		\begin{tabular}{ r }
+			$V_{out} = \frac{V_{in}}{s}\frac{1/{s C}}{R + 1/{s C}}$%
+			$ = \frac{V_{in}}{s} - \frac{V_{in}}{s + 1/{RC}}$\\
+			$V_{out}(t) = V_{in}(1 - e^{-t/{RC}})$\\
+			$t \colon V_{out} = V_{in}/_2 \rightarrow V_{in}/_2 = V_{in} (1 - e^{-t/{RC}})$\\
+			$1/_2 = 1 - e^{-t/{RC}} \rightarrow t = -RC \ln \sfrac{1}{2}$\\
+			$t = 0.693 R C$\\
+			\hline
+		\end{tabular}
+	\end{subfigure}
+
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 2pF \colon R = 250k\Omega$\\
+			$t = 0.692 (2pf)(250k\Omega)$\\
+			$t = 0.346\mu s$
+		\end{tabular}
+	  	\caption{Phase delay for $C_{min}$}
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 3pF \colon R = 250k\Omega$\\
+			$t = 0.692 (3pf)(250k\Omega)$\\
+			$t = 0.520\mu s$
+		\end{tabular}
+		\caption{Phase delay for $C_{nom}$} 
+	\end{subtable}
+	\begin{subtable}[b]{0.3\textwidth}
+		\centering
+		\begin{tabular}{ l }
+			$C = 5pF \colon R = 250k\Omega$\\
+			$t = 0.692 (5pf)(250k\Omega)$\\
+			$t = 0.866\mu s$
+		\end{tabular}
+		\caption{Phase delay for $C_{max}$}
+	\end{subtable}
+
+\end{figure}
+
+\end{enumerate}
+\label{end}\end{document}
+
+
