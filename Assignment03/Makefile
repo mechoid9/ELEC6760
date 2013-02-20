@@ -10,6 +10,5 @@ test: $(PROJECT).pdf
 	xpdf $(PROJECT).pdf 2> /dev/null &
 
 clean:
-	rm $(PROJECT).pdf
 	rm $(PROJECT).log
 	rm $(PROJECT).aux
