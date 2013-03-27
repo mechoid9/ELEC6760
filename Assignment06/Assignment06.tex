@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+% \usepackage{fullpage, fancyhdr}
+\usepackage{fullpage}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{portland}
+%\usepackage{setspace}
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0.5in}
+\setlength{\headsep}{0in}
+\setlength{\footskip}{9pt}
+\usepackage{listings}
+\usepackage{color}
+
+\usepackage{multicol}
+
+\renewcommand{\arraystretch}{1.5}
+
+% For circuitikz
+\usepackage[american,arrowmos]{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{amsfonts}
+\usetikzlibrary{shapes,arrows}
+
+% \pagestyle{fancyplain}
+\pagestyle{myheadings}
+\voffset=-0.50in
+\topmargin=0.00in 
+\headsep=0.25in 
+\evensidemargin=0in 
+\oddsidemargin=0in 
+\textwidth=6.6in 
+\textheight=10.0in 
+
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+% remember to use [htp] or [htpb] for placement
+
+\title{Assignment \# 6: MEMS PPA and Doppler Calculations}
+\date{3/27/2013}
+\author{Brian Arnberg}
+
+\markright{Brian Arnberg\hfill ELEC 6760 - Solid State Sensors\hfill}     
+\setlength{\parindent}{0pt}
+
+
+\begin{document}\label{start}
+
+% \begin{titlepage}
+% 	\maketitle
+% 	\thispagestyle{empty}
+% \end{titlepage}
+
+
+\section*{ Homework Assignment \#6 - Due Wed. 3/27/13 }
+\renewcommand{\labelenumi}{\arabic{enumi})}
+\begin{multicols}{2}
+\begin{enumerate}
+%--------------------------------------------------------------%
+%---- Problem 1 -----------------------------------------------%
+\item\label{p1}
+ A parallel plate actuator (PPA) consists of two square electrodes, 500$\mu$m on a
+     side, separated by 10$\mu$m, in a vacuum. What is the force produced if 100V DC is
+     applied across the electrodes
+
+		\begin{tabular}{ l }
+			$F = \frac{\varepsilon_0 \varepsilon_r A V^2}{2 x^2}$\\
+			$F = \frac{8.854e-12*0*(500\mu m)^2*100^2}{2*(10\mu m)^2}$\\
+			$F = 110.6 \mu N$
+		\end{tabular}
+%--------------------------------------------------------------%
+%---- Problem 2 -----------------------------------------------%
+\item\label{p2}
+     If a sinusoidal voltage with a 100V amplitude is applied to the PPA in (\ref{p1}), where
+     the frequency of the voltage signal is much higher than the natural frequency of
+     the mechanical system, what is the average force produced by the PPA?
+
+		\begin{tabular}{ l }
+			$V^2(t) \approx {V_s}^2/2 = 100^2/2 = 5000V RMS$\\
+			$F = \frac{\varepsilon_0 \varepsilon_r A V^2}{2 x^2}$\\
+			$F = \frac{8.854e-12*0*(500\mu m)^2*5000}{2*(10\mu m)^2}$\\
+			$F = 55.33 \mu N$
+		\end{tabular}
+  
+%--------------------------------------------------------------%
+%---- Problem 3 -----------------------------------------------%
+\item\label{p3}
+     For the PPA in (\ref{p1}), if the system spring constant is 50N/m, what is the pull-in
+     voltage?
+
+		\begin{tabular}{ l }
+			$V_p = \sqrt{\frac{8*k*{x_0}^3}{27*A*\varepsilon_r\varepsilon_0}}$\\
+			$V_p = \sqrt{\frac{8*50*{10e-6}^3}{27*(500e-6)^2*8.854e-12}}$\\
+			$V_p = 81.8V$
+		\end{tabular}
+%--------------------------------------------------------------%
+%---- Problem 4 -----------------------------------------------%
+\item\label{p4}
+	If the PPA in (\ref{p1}) is used with the spring in (\ref{p3}), what applied DC voltage will
+     decrease the distance between the electrodes by 1$\mu$m.
+
+		\begin{tabular}{ l }
+			$F = \frac{\varepsilon_0 \varepsilon_r A V^2}{2 (x_0 - x(t))^2} = k x(t)$\\
+			$\frac{8.854e-12*0*(500\mu m)^2*V^2}{2*(10\mu m - 1\mu m)^2} = 50 N/m * 1\mu m$\\
+			$V^2 = \frac{8.1e-15}{2.2135e-18} = 3.659e3$\\
+			$V = 60.49 V$
+		\end{tabular}
+  
+%--------------------------------------------------------------%
+%---- Problem 5 -----------------------------------------------%
+\item\label{p5}
+     An object is moving away from a 20KHz sound source at 10m/s. If the speed of
+     sound in air is 331m/s, what is the frequency of the reflected sound wave?
+
+		\begin{tabular}{ l }
+			$f_d = \frac{f_s}{1+\dot{x}/c}$\\
+			$f_d = \frac{20kHz}{1+10/331}$\\
+			$f_d = 19.41kHz$
+		\end{tabular}
+  
+%--------------------------------------------------------------%
+%---- Problem 6 -----------------------------------------------%
+\item\label{p6}
+	If the object in (\ref{p5}) is moving toward the sound source, what is the frequency of
+     the return sound wave?
+% \begin{figure}[h]
+% \centering
+
+		\begin{tabular}{ l }
+			$f_d = \frac{f_s}{1+\dot{x}/c}$\\
+			$f_d = \frac{20kHz}{1-10/331}$\\
+			$f_d = 20.62kHz$
+		\end{tabular}
+% \end{figure}
+
+\end{enumerate}
+\end{multicols}
+\label{end}\end{document}
+
+

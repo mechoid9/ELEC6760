@@ -1,0 +1,16 @@
+Homework Assignment #6               ELEC 5760/6760                Due: Wed 3/27/13
+  1) A parallel plate actuator (PPA) consists of two square electrodes, 500µm on a
+     side, separated by 10µm, in a vacuum. What is the force produced if 100V DC is
+     applied across the electrodes
+  2) If a sinusoidal voltage with a 100V amplitude is applied to the PPA in (1), where
+     the frequency of the voltage signal is much higher than the natural frequency of
+     the mechanical system, what is the average force produced by the PPA?
+  3) For the PPA in (1), if the system spring constant is 50N/m, what is the pull-in
+     voltage?
+  4) If the PPA in (1) is used with the spring in (3), what applied DC voltage will
+     decrease the distance between the electrodes by 1µm.
+  5) An object is moving away from a 20KHz sound source at 10m/s. If the speed of
+     sound in air is 331m/s, what is the frequency of the reflected sound wave?
+  6) If the object in (5) is moving toward the sound source, what is the frequency of
+     the return sound wave?
+
