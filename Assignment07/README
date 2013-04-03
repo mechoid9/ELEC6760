@@ -1,0 +1,19 @@
+Homework Assignment #7               ELEC 5760/6760                Due: Mon 4/3/13
+  1) Estimate the depth in the ocean that the static pressure is 50% due to the water
+     depth and 50% due to the air pressure above the water. Use 1G = 9.8 m/s2 and 1
+     g/cm3 for the density of sea water, and 1atm for the air pressure.
+  2) A MEMS submarine is being used to monitor the cooling fluid in an industrial
+     transformer. The transformer fluid (liquid) has a density of 2 g/cm3. The sub is in
+     motion and measures the total pressure (1960.1 Pa) and the static pressure (1960
+     Pa) that it experiences, using gage pressure sensors. For 1G = 9.8 m/s2, estimate
+     the velocity of the sub in mm/s?
+  3) For the sub in (6), what is the depth of the sub in mm, ignoring atmospheric
+     pressure?
+  4) For the pressure sensor diaphragm shown below, the four identical P-type
+     piezoresistors have a gauge factor of +180:
+     a. Under pressure, is each resistor in compression or tension?
+     b. Under pressure, has each resistor increased or decreased in resistance?
+  5) Estimate the acceleration level of a shock event of a 1Kg object falling 10m onto
+     a hard surface where it completely stops moving 10ms after initial impact. (1G =
+     9.8 m/s2)
+
