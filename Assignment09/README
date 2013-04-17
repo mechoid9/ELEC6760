@@ -1,0 +1,19 @@
+Homework Assignment #9               ELEC 5760/6760                   Due: Wed. 4/17/13
+  A photograph of a MEMS gyroscope, that was fabricated in an SOI wafer, is
+  presented on the next page. The proof mass is forced to move along the x-axis and
+  sensing is made along the y-axis. The z-axis is orthogonal to the photograph, i.e. out
+  of the paper. Answer the following questions about it:
+  1) What is A?
+  2) What is B?
+  3) What are the holes in B for?
+  4) What is C and what is it used for?
+  5) What is D and what is it used for?
+  6) About which axis would rotational motion be sensed with this gyroscope?
+  7) Does this gyroscope sense angular position, angular rate or angular acceleration?
+  8) If the proof mass is 1µg, Q=100, fn=10KHz, Ax=1µN, what is the damping
+      coefficient, c, and the system spring constant, k, for the sensor?
+  9) For the parameters in (8), what is the amplitude of displacement along the y-axis
+      for =300o/s (hint: convert  to rad/s)?
+  10) For the parameters in (8), what angular rate (in o/s) results in an amplitude of
+      displacement along the y-axis of 1µm?
+
