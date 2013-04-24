@@ -1,0 +1,58 @@
+% -----------  Document Initializations ------------ %
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1.25in, right=1.25in]{geometry}
+% \usepackage{wordlike}
+\usepackage{txfonts}
+\pagenumbering{gobble}
+% -------------------------------------------------- %
+
+% -----------  Document Declarations --------------- %
+\title{ELEC 6760 Project, Spring 2013: ADXL278 - Dual-Axis, High-\emph{g}, Accelerometers}
+\date{2013.04.24}
+\author{Brian Arnberg}
+% -------------------------------------------------- %
+
+% -----------  Document Content -------------------- %
+\begin{document}\label{start}
+\noindent\textbf{ELEC 6760 Project, Spring 2013: ADXL278 - Dual-Axis, High-\emph{g}, Accelerometers}\\
+\\
+Brian Arnberg\\
+
+The ADXL278 is a dual-axis accelerometer capable of measuring high-\emph{g} accelerations. 
+It is a low power device built on a single monolithic IC. Additionally, the voltage outputs 
+the device are signal conditioned. It can measure dynamic or static acceleration. Also, 
+its effective acceleration magnitudes are 35, 50, and 70 -\emph{g} in the x-axis and 
+35, 50, and 35 -\emph{g} in the y-axis. The data sheet indicates that while the device
+is primarily concerned with airbag applications (front/side), it can be used in a wide 
+variety of other applications. This is because the device is designed to work in an 
+automotive vehicle. Because it is designed for such use, it is temperature stable and 
+``accurate over the automotive temperature range'' (pg 1). In addition to this built
+in stability, the ADXL278 boasts a self-test feature that tests all of the relevant elements 
+(electrical and mechanical) by exercising them. The MEMS sensor is an 8-terminal package. 
+
+The data sheet lists specifications for three different models: AD22284, AD22285, and AD22286.  
+For each model, the temperature range is from -40 C to +105 C. The non-linearity of each model
+is typically 0.2\%. Each typically has a package alignment error of 1 Degree, with a 
+sensor\--to\--sensor alignment error of 0.1 Degrees. The cross-axis sensitivity is -5\% to +5\%.
+The resonant frequency is 24kHz. For the first model, the ratiometric sensitivity is 
+55mV/\emph{g}; for the second, 38mV/\emph{g}, and for the third, 55mV/\emph{g}. 
+The Zero\--\emph{g} Output Voltage offset for the first two models ranges from -150mV to +150mV 
+(in both axes), the ranges for the third model are -100mV to +100mV in the X-axis and 
+-150mV to +150mV in the Y-axis. The clock noise for each model is 5mV p-p. The frequency response
+for -3dB Frequency is typically 400 Hz (for the 2-pole Bessel filter), while the frequency response
+for the -3dB Frequency Drift is 2Hz (for the same 2-pole Bessel filter). The self-test has a 
+logic high of 3.5V and a logic low of 1V, with a typical input resistance of 50kOhms. 
+
+The data sheet lists some absolute maximum ratings for the ADXL278. The maximum allowable acceleration,
+in any axis, powered or un-powered, is 4,000\emph{g}. The maximum Vs is -0.3V to +7.0V. For other pins, 
+the maximum range is (COM-0.3V) to (Vs+0.3V). There is an indefinite output short-circuit duration
+maximum rating. The maximum temperature range, for both operation and storage, is -65 C to +150 C. 
+Operating the device outside any of these ranges, or above any of the maximum settings, is liable to 
+permanently degrade the device. Additionally, this device is sensitive to Electrostatic Discharge. 
+
+The chip has 8-terminals. Terminals 1, 7, and 8 are to be connected to VDD3, VDD, and VDD2, all of which
+can range from 3.5V to 6V. Pins 2 and 6 serve as output pins for Yout and Xout, respectively. 
+Pin 3 is the common pin, and Pin 4 is used to activate the self-test. Pin 5 is not to be connected. 
+
+\end{document}\label{end}
+% -------------------------------------------------- %
